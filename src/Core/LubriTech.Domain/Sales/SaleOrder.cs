@@ -1,4 +1,5 @@
-﻿using SharedKernel.ValueObjects;
+﻿using LubriTech.Domain.Enums;
+using SharedKernel.ValueObjects;
 
 namespace LubriTech.Domain.Sales;
 
@@ -9,7 +10,7 @@ public sealed class SaleOrder
     public Guid Id { get; private set; }
     public Guid CustomerId { get; private set; }
     public DateTime SaleDate { get; private set; }
-    public SaleOrderStatus OrderStatus { get; private set; }
+    public OrderStatus OrderStatus { get; private set; }
     public Money TotalAmount => new(_items.Sum(x => x.UnitPrice.Amount * x.Quantity), "BOB");
     public IReadOnlySet<SaleItem> Items => _items;
     public static SaleOrder Create(Guid customerId) 
@@ -18,12 +19,12 @@ public sealed class SaleOrder
             Id = Guid.NewGuid(),
             CustomerId = customerId,
             SaleDate = DateTime.UtcNow,
-            OrderStatus = SaleOrderStatus.Pending
+            OrderStatus = OrderStatus.Pending
         };
     public SaleItem AddItem(Guid productId, Money unitPrice, int quantity)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(quantity, nameof(quantity));
-        if (OrderStatus is not SaleOrderStatus.Pending)
+        if (OrderStatus is not OrderStatus.Pending)
         {
             throw new InvalidOperationException("Cannot add items to a non-pending order.");
         }
@@ -41,7 +42,7 @@ public sealed class SaleOrder
     }
     public void Confirm()
     {
-        if (OrderStatus is not SaleOrderStatus.Pending)
+        if (OrderStatus is not OrderStatus.Pending)
         {
             throw new InvalidOperationException("Only pending orders can be confirmed.");
         }
@@ -49,12 +50,6 @@ public sealed class SaleOrder
         {
             throw new InvalidOperationException("Cannot confirm an order with no items.");
         }
-        OrderStatus = SaleOrderStatus.Completed;
+        OrderStatus = OrderStatus.Completed;
     }
-}
-public enum SaleOrderStatus
-{
-    Pending,
-    Completed,
-    Cancelled
 }

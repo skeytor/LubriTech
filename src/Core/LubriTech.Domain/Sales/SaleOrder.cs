@@ -1,9 +1,10 @@
 ﻿using LubriTech.Domain.Enums;
+using SharedKernel.Common;
 using SharedKernel.ValueObjects;
 
 namespace LubriTech.Domain.Sales;
 
-public sealed class SaleOrder
+public sealed class SaleOrder : IAggregateRoot
 {
     private SaleOrder() { }
     private readonly HashSet<SaleItem> _items = [];
@@ -11,6 +12,8 @@ public sealed class SaleOrder
     public Guid CustomerId { get; private set; }
     public DateTime SaleDate { get; private set; }
     public OrderStatus OrderStatus { get; private set; }
+    public DateTime CreatedAt { get; init; }
+    public DateTime? UpdatedAt { get; private set; }
     public Money TotalAmount => new(_items.Sum(x => x.UnitPrice.Amount * x.Quantity), "BOB");
     public IReadOnlySet<SaleItem> Items => _items;
     public static SaleOrder Create(Guid customerId) 
@@ -19,7 +22,8 @@ public sealed class SaleOrder
             Id = Guid.NewGuid(),
             CustomerId = customerId,
             SaleDate = DateTime.UtcNow,
-            OrderStatus = OrderStatus.Pending
+            OrderStatus = OrderStatus.Pending,
+            CreatedAt = DateTime.UtcNow
         };
     public SaleItem AddItem(Guid productId, Money unitPrice, int quantity)
     {

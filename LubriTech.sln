@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LubriTech.Domain", "src\Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "src\SharedKernel\SharedKernel.csproj", "{31701854-8EB0-4AB6-A9C9-C018C146198E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LubriTech.Persistence", "LubriTech.Persistence\LubriTech.Persistence.csproj", "{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{31701854-8EB0-4AB6-A9C9-C018C146198E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31701854-8EB0-4AB6-A9C9-C018C146198E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31701854-8EB0-4AB6-A9C9-C018C146198E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +41,7 @@ Global
 		{EFB9C794-4C6B-491A-B202-9CEABF2A5157} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C9989B53-86BC-41A3-9F72-69D60CB075A9} = {EFB9C794-4C6B-491A-B202-9CEABF2A5157}
 		{31701854-8EB0-4AB6-A9C9-C018C146198E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5} = {EFB9C794-4C6B-491A-B202-9CEABF2A5157}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C0F69CB-2AC5-43A9-BBDB-536C90F22DFC}

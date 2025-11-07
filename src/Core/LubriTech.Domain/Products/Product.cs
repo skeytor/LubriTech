@@ -1,8 +1,9 @@
-﻿using SharedKernel.ValueObjects;
+﻿using SharedKernel.Common;
+using SharedKernel.ValueObjects;
 
 namespace LubriTech.Domain.Products;
 
-public sealed class Product
+public sealed class Product : IAggregateRoot
 {
     private Product() { }
     public Guid Id { get; private set; }

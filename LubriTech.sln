@@ -1,11 +1,40 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8 d17.14
+VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5A1F1679-C8C4-43EF-8551-29A80CB342E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{EFB9C794-4C6B-491A-B202-9CEABF2A5157}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LubriTech.Domain", "src\Core\LubriTech.Domain\LubriTech.Domain.csproj", "{C9989B53-86BC-41A3-9F72-69D60CB075A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "src\SharedKernel\SharedKernel.csproj", "{31701854-8EB0-4AB6-A9C9-C018C146198E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9989B53-86BC-41A3-9F72-69D60CB075A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9989B53-86BC-41A3-9F72-69D60CB075A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9989B53-86BC-41A3-9F72-69D60CB075A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9989B53-86BC-41A3-9F72-69D60CB075A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31701854-8EB0-4AB6-A9C9-C018C146198E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31701854-8EB0-4AB6-A9C9-C018C146198E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31701854-8EB0-4AB6-A9C9-C018C146198E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31701854-8EB0-4AB6-A9C9-C018C146198E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EFB9C794-4C6B-491A-B202-9CEABF2A5157} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C9989B53-86BC-41A3-9F72-69D60CB075A9} = {EFB9C794-4C6B-491A-B202-9CEABF2A5157}
+		{31701854-8EB0-4AB6-A9C9-C018C146198E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C0F69CB-2AC5-43A9-BBDB-536C90F22DFC}

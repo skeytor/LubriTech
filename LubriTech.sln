@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LubriTech.Domain", "src\Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "src\SharedKernel\SharedKernel.csproj", "{31701854-8EB0-4AB6-A9C9-C018C146198E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LubriTech.Persistence", "LubriTech.Persistence\LubriTech.Persistence.csproj", "{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LubriTech.Persistence", "src\Core\LubriTech.Persistence\LubriTech.Persistence.csproj", "{F9B2A7C3-6E0C-48BA-9800-909A6AE992B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LubriTech.Persistence.IntegrationTest", "tests\Systems\LubriTech.Persistence.IntegrationTest\LubriTech.Persistence.IntegrationTest.csproj", "{4F43B4E5-8F10-47F5-84DB-FA9D8B9548DB}"
 EndProject

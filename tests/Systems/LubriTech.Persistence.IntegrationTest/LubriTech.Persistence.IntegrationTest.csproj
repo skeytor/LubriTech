@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\LubriTech.Persistence\LubriTech.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\LubriTech.Persistence\LubriTech.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>

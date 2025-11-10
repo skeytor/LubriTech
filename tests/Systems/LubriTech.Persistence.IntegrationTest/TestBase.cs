@@ -5,39 +5,37 @@ using Xunit.Abstractions;
 
 namespace LubriTech.Persistence.IntegrationTest;
 
-[Collection(nameof(DatabaseCollectionFixture))]
 public abstract class TestBase(
     DatabaseFixture fixture, 
     ITestOutputHelper outputHelper) 
     : IAsyncLifetime
 {
-    protected readonly ITestOutputHelper testOutputHelper = outputHelper;
-    protected readonly AppDbContext context = fixture.GetDbContext();
-    public Task DisposeAsync() => context.DisposeAsync().AsTask();
-
-    public async Task InitializeAsync()
+    protected readonly ITestOutputHelper TestOutputHelper = outputHelper;
+    protected readonly AppDbContext Context = fixture.Context;
+    public virtual Task DisposeAsync() => Context.DisposeAsync().AsTask();
+    public virtual Task InitializeAsync()
     {
-        testOutputHelper.WriteLine($"Connection string: {fixture.ConnectionString} ");
-        await context.Database.MigrateAsync();
+        TestOutputHelper.WriteLine($"Connection string: {fixture.ConnectionString}");
+        return Task.CompletedTask;
     }
     protected void ExecuteInATransaction(Action action)
     {
-        IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
-        strategy.Execute(() =>
+        IExecutionStrategy strategy = Context.Database.CreateExecutionStrategy();
+        strategy.Execute(action,(operation) =>
         {
-            using IDbContextTransaction transaction = context.Database.BeginTransaction();
-            action();
+            using IDbContextTransaction transaction = Context.Database.BeginTransaction();
+            operation();
             transaction.Rollback();
         });
     }
     protected Task ExecuteInATransactionAsync(Func<Task> action)
     {
-        IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
-        return strategy.ExecuteAsync(async () =>
+        IExecutionStrategy strategy = Context.Database.CreateExecutionStrategy();
+        return strategy.ExecuteAsync(action, async (operation) => 
         {
-            await using IDbContextTransaction transaction = await context.Database.BeginTransactionAsync();
-            await action();
-            return transaction.RollbackAsync();
+            await using IDbContextTransaction transaction = await Context.Database.BeginTransactionAsync();
+            await operation();
+            await transaction.RollbackAsync();
         });
     }
 }

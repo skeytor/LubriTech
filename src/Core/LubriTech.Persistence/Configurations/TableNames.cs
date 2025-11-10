@@ -1,4 +1,4 @@
-﻿namespace LubriNet.Persistence.Configurations;
+﻿namespace LubriTech.Persistence.Configurations;
 
 internal static class TableNames
 {

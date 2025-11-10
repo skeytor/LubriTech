@@ -6,7 +6,7 @@ internal static class DataInitializer
     {
         context.Categories.AddRange(SampleData.Categories);
         context.Brands.AddRange(SampleData.Brands);
-        //context.Products.AddRange(SampleData.Products);
+        context.Products.AddRange(SampleData.Products);
         return context.SaveChangesAsync();
     }
 }

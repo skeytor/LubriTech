@@ -1,5 +1,4 @@
-﻿using LubriNet.Persistence.Configurations;
-using LubriTech.Domain.Customers;
+﻿using LubriTech.Domain.Customers;
 using LubriTech.Domain.Enums;
 using LubriTech.Domain.Sales;
 using Microsoft.EntityFrameworkCore;

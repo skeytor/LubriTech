@@ -1,5 +1,4 @@
-﻿using LubriNet.Persistence.Configurations;
-using LubriTech.Domain.Products;
+﻿using LubriTech.Domain.Products;
 using LubriTech.Domain.Purchasing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
